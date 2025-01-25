@@ -211,6 +211,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7d56c334d166541c6846e4bfc57212d0, type: 3}
   - {fileID: 21300000, guid: 4388ec7f0d4134cea9314dc7b6db6a48, type: 3}
   _teaManager: {fileID: 0}
+  _shakeDuration: 0.5
+  _shakeIntensity: 0.025
 --- !u!1 &6265728892161315680
 GameObject:
   m_ObjectHideFlags: 0

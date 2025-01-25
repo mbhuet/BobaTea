@@ -6,7 +6,14 @@ public class DelilahStateMachine : MonoBehaviour
     [SerializeField] private Sprite[] _delilahSprites;
     [SerializeField] private BobaTeaManager _teaManager;
 
+    [Space]
+    [Header("Sprite Shake Parameters")]
+    [SerializeField] private float _shakeDuration = 0.5f;
+    [SerializeField] private float _shakeIntensity = 0.1f;
+
     private DelilahState _delilahState = DelilahState.Default;
+    private float _shakeTimer = 0f;
+    private Vector3 _initialSpritePosition = Vector3.zero;
 
     public enum DelilahState
     {
@@ -21,12 +28,23 @@ public class DelilahStateMachine : MonoBehaviour
     {
         if (_teaManager != null)
             _teaManager.BobaSucked += OnBobaSucked;
+
+        _initialSpritePosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (_shakeTimer > 0f)
+        {
+            var offset = new Vector3((Random.insideUnitCircle * _shakeIntensity).x, 0f, 0f);
+            transform.position += offset;
+            _shakeTimer -= Time.deltaTime;
+        }
+        else if (transform.position != _initialSpritePosition)
+        {
+            transform.position = _initialSpritePosition;
+        }
     }
 
     private void OnBobaSucked(BobaPearl boba)
@@ -39,6 +57,7 @@ public class DelilahStateMachine : MonoBehaviour
 
             case BobaPearl.BobaType.NASTY:
                 SetDelilahState(DelilahState.Stunned);
+                _shakeTimer = _shakeDuration;
                 break;
         }
     }
