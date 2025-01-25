@@ -14,6 +14,8 @@ public class BobaStraw : MonoBehaviour
 
     private bool isSucking = false;
 
+    public float strawMoveForce = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +24,22 @@ public class BobaStraw : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        
+        bool wasSucking = isSucking;
+        isSucking = Input.GetMouseButton(0);
+        if(isSucking && !wasSucking)
+        {
+            BeginSuck();
+        }
+        if(wasSucking && !isSucking)
+        {
+            EndSuck();
+        }
+    }
+
+
+    private void FixedUpdate()
     {
         //fit straw to moust
         Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition, Camera.MonoOrStereoscopicEye.Mono);
@@ -39,19 +57,14 @@ public class BobaStraw : MonoBehaviour
         Quaternion strawLook = Quaternion.LookRotation(_pivotPoint.position - clampedMousePoint, Vector3.back);
 
         _strawRigidbody.MovePositionAndRotation(clampedMousePoint, angle);
+
+        //Vector2 curToTarget = (Vector2)clampedMousePoint - _strawRigidbody.position;
+        //_strawRigidbody.AddForce(curToTarget.normalized *  Mathf.Min(curToTarget.magnitude, strawMoveForce));
+        //_strawRigidbody.MoveRotation(angle);
+        //MoveDynamic(_strawRigidbody, clampedMousePoint, Quaternion.Euler(0, 0, angle));
+
         //_strawTransform.position = mousePoint;
         //_strawTransform.rotation = strawLook;
-
-        bool wasSucking = isSucking;
-        isSucking = Input.GetMouseButton(0);
-        if(isSucking && !wasSucking)
-        {
-            BeginSuck();
-        }
-        if(wasSucking && !isSucking)
-        {
-            EndSuck();
-        }
     }
 
     private void BeginSuck()
@@ -80,5 +93,41 @@ public class BobaStraw : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, _bounds * 2f);
+    }
+
+    /// <summary>
+    /// Attempts to move a dynamic rigidbody to a specific position/rotation using ForceMode.VelocityChange. Used when we want to precisely control the movement of a rigidbody but not let it pass through static colliders.
+    /// </summary>
+    /// <param name="rb"></param>
+    /// <param name="targetPos"></param>
+    /// <param name="targetRot"></param>
+    public static void MoveDynamic(Rigidbody2D rb, Vector3 targetPos, Quaternion targetRot)
+    {
+        float scale = rb.transform.lossyScale.x;
+        Vector3 targetCenterOfMass = targetPos + targetRot * (rb.centerOfMass * scale);
+        Vector3 deltaCenterOfMass = targetCenterOfMass - rb.transform.TransformPoint(rb.centerOfMass);
+#if UNITY_6000_0_OR_NEWER
+        Vector3 rbVelocity = rb.linearVelocity;
+#else
+Vector3 rbVelocity = rb.velocity;
+#endif
+        Vector3 correctiveVel = deltaCenterOfMass / Time.deltaTime - rbVelocity;
+
+        rb.linearVelocity = correctiveVel;
+        //rb.AddForce(correctiveVel, ForceMode2D.);
+
+        Quaternion rbRotation = Quaternion.Euler(0, 0, rb.rotation);
+        Quaternion deltaRot = (targetRot * Quaternion.Inverse(rbRotation)).normalized;
+
+        Vector3 correctionRotAxis;
+        float correctionRotAngle;
+        deltaRot.ToAngleAxis(out correctionRotAngle, out correctionRotAxis);
+
+        Vector3 correctiveAngularVel =
+        correctionRotAxis * (correctionRotAngle * Mathf.Deg2Rad) /
+        Time.deltaTime - new Vector3(0,0,rb.angularVelocity);
+
+        rb.angularVelocity = correctiveAngularVel.z;
+        //rb.AddTorque(correctiveAngularVel, ForceMode.VelocityChange);
     }
 }

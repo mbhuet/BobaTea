@@ -182,7 +182,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _suckParticles: {fileID: 5685450206950835275}
-  suckForce: 1
+  suckForce: 50
   suckRadius: 1.5
 --- !u!1 &4531372908507795893
 GameObject:
@@ -5213,6 +5213,7 @@ MonoBehaviour:
   _bounds: {x: 2.06, y: 3.42}
   _pull: {fileID: 5910240061795264049}
   _suck: {fileID: 930833010002045165}
+  strawMoveForce: 1
 --- !u!1 &6815756042262770379
 GameObject:
   m_ObjectHideFlags: 0
