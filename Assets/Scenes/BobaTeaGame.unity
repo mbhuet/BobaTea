@@ -6759,6 +6759,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1805509060 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2018541872445164018, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+  m_PrefabInstance: {fileID: 7922933820130090305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076b119b9c02d9d4182c967d691c21e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1825982905
 Mesh:
   m_ObjectHideFlags: 0
@@ -7501,6 +7512,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2064810148133574734, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
+      propertyPath: _teaManager
+      value: 
+      objectReference: {fileID: 1805509060}
     - target: {fileID: 3101225535684989146, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_Name
       value: GameCanvas
@@ -7509,6 +7524,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1578288468}
+    - target: {fileID: 6851862369487287997, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

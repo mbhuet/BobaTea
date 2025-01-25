@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     private BobaTeaManager _teaManager;
+    private ScoreDisplay _scoreDisplay;
     private int _score = 0;
 
     private void Awake()
@@ -53,6 +54,14 @@ public class GameManager : MonoBehaviour
         _teaManager = null;
     }
 
+    public void AssignScoreDisplay(ScoreDisplay display)
+    {
+        if (display == null)
+            return;
+
+        _scoreDisplay = display;
+    }
+
     private void OnBobaSucked(BobaPearl boba)
     {
         switch (boba.Type)
@@ -60,6 +69,7 @@ public class GameManager : MonoBehaviour
             case BobaPearl.BobaType.GOOD:
                 // TODO: hook score up to UI
                 _score++;
+                _scoreDisplay.ScoreUpdated?.Invoke(_score);
                 break;
 
             case BobaPearl.BobaType.NASTY:
