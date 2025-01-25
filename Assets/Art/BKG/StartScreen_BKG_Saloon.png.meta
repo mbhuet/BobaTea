@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 69756e980f27d8f489829f43114461bd
+guid: d585ac6813cc24b5882c84bf43f45721
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4167930201102865832
-    second: Game_Mock-up_Menu_art_JHK_v01_0
+      213: -6495139431790275172
+    second: StartScreen_BKG_Saloon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Game_Mock-up_Menu_art_JHK_v01_0
+      name: StartScreen_BKG_Saloon_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a5db5d6f6677d930800000000000000
-      internalID: 4167930201102865832
+      spriteID: c9512897911acd5a0800000000000000
+      internalID: -6495139431790275172
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Game_Mock-up_Menu_art_JHK_v01_0: 4167930201102865832
+      StartScreen_BKG_Saloon_0: -6495139431790275172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
