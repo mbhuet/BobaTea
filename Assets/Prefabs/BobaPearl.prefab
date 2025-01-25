@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 33145107104010770}
   - component: {fileID: 50739895835819980}
   - component: {fileID: 61910460106704138}
+  - component: {fileID: 545873364381676471}
   m_Layer: 0
   m_Name: BobaPearl
   m_TagString: Untagged
@@ -563,6 +564,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.57, y: 4.58}
   m_EdgeRadius: 0
+--- !u!114 &545873364381676471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229810352026156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4d4925ae595f24ab2be2d62fc5f4d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
 --- !u!1 &1291207288853482
 GameObject:
   m_ObjectHideFlags: 0
