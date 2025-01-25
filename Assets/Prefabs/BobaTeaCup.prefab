@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3573486754717261488}
   - component: {fileID: 4580345404174151826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274840137841905423}
   - component: {fileID: 7649005762152256131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 0.1}
+  m_Size: {x: 3, y: 0.1}
   m_EdgeRadius: 0
 --- !u!1 &3366659077657059312
 GameObject:
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377503136959131139}
   - component: {fileID: 7749539306860895790}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5185408034595901123}
   - component: {fileID: 7791997077002015012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 0.1}
+  m_Size: {x: 3, y: 0.1}
   m_EdgeRadius: 0
 --- !u!1 &3781269972613490889
 GameObject:
@@ -449,7 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6861101645915937314}
   - component: {fileID: 2198119986363585858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8149863156903568961}
   - component: {fileID: 3389509562263517981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8998412387993345582}
   - component: {fileID: 2364650574566097948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176601904161754644}
   - component: {fileID: 526242498514225658}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6962607148202261420}
   - component: {fileID: 4040846330130366297}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

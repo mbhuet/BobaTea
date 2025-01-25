@@ -6,17 +6,18 @@ public class BobaStraw : MonoBehaviour
     public Transform _pivotPoint;
     public Transform _strawTransform;
     public Rigidbody2D _strawRigidbody;
-    public Transform _upperBound;
-    public Transform _lowerBound;
-    public Transform _leftBound;
-    public Transform _rightBound;
 
     public Vector2 _bounds;
+
+    public StrawPull _pull;
+    public StrawSuck _suck;
+
+    private bool isSucking = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        EndSuck();
     }
 
     // Update is called once per frame
@@ -35,14 +36,43 @@ public class BobaStraw : MonoBehaviour
 
         float angle = Vector3.SignedAngle(Vector3.up, _pivotPoint.position - clampedMousePoint, Vector3.forward);
         Debug.DrawLine(_pivotPoint.position, clampedMousePoint);
-        Debug.Log("angle " + angle);
         Quaternion strawLook = Quaternion.LookRotation(_pivotPoint.position - clampedMousePoint, Vector3.back);
 
         _strawRigidbody.MovePositionAndRotation(clampedMousePoint, angle);
         //_strawTransform.position = mousePoint;
         //_strawTransform.rotation = strawLook;
 
+        bool wasSucking = isSucking;
+        isSucking = Input.GetMouseButton(0);
+        if(isSucking && !wasSucking)
+        {
+            BeginSuck();
+        }
+        if(wasSucking && !isSucking)
+        {
+            EndSuck();
+        }
+    }
 
+    private void BeginSuck()
+    {
+        //Debug.Log("Begin Suck");
+        isSucking = true;
+        _pull.enabled = true;
+        _suck.enabled = true;
+    }
+
+    private void EndSuck()
+    {
+        //Debug.Log("End Suck");
+        isSucking = false;
+        _pull.enabled = false;
+        _suck.enabled = false;  
+    }
+
+    public void Suck(BobaPearl boba)
+    {
+        GameObject.Destroy(boba.gameObject);
     }
 
     private void OnDrawGizmosSelected()
