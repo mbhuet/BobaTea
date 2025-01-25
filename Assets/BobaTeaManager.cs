@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class BobaTeaManager : MonoBehaviour
 {
     public BobaMix[] _bobaMixes;
     public BobaTeaCup _bobaTeaCup;
+
+    public Action<BobaPearl> BobaSucked;
 
     private void Start()
     {
