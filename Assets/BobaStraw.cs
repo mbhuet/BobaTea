@@ -72,6 +72,7 @@ public class BobaStraw : MonoBehaviour
 
     public void Suck(BobaPearl boba)
     {
+        GameManager.Instance.TeaManager.BobaSucked?.Invoke(boba);
         GameObject.Destroy(boba.gameObject);
     }
 
