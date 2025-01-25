@@ -11,6 +11,7 @@ public class BobaTeaManager : MonoBehaviour
     private void Start()
     {
         Debug.Log("BobaTeaManager Start");
+        GameManager.Instance.AssignBobaManager(this);
         _bobaTeaCup.TeaDepleted += OnTeaCompleted;
         _bobaTeaCup.SpawnMix(_bobaMixes[0]);
     }
