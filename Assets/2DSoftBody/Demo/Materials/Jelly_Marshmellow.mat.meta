@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 69c45523223804baf8bc81d3f8e840ac
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182142
+  packageName: 2D Soft Body
+  packageVersion: 2.0
+  assetPath: Assets/2DSoftBody/Demo/Materials/Jelly_Marshmellow.mat
+  uploadId: 587864

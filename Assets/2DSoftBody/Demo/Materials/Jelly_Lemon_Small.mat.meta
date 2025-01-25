@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 561a6f02e90324be19961360907bc1aa
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182142
+  packageName: 2D Soft Body
+  packageVersion: 2.0
+  assetPath: Assets/2DSoftBody/Demo/Materials/Jelly_Lemon_Small.mat
+  uploadId: 587864

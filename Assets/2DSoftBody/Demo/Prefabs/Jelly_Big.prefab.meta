@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f9037d8c90d0c40758aa1c32a9a0681e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182142
+  packageName: 2D Soft Body
+  packageVersion: 2.0
+  assetPath: Assets/2DSoftBody/Demo/Prefabs/Jelly_Big.prefab
+  uploadId: 587864

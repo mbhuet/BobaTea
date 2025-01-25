@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 03842c986b12f4bd3a8838e909bdfdf6
+timeCreated: 1489437855
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182142
+  packageName: 2D Soft Body
+  packageVersion: 2.0
+  assetPath: Assets/2DSoftBody/Scripts/Editor/SoftObjectMenu.cs
+  uploadId: 587864

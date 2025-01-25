@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c8f083cc221d049b59abe1328492889c
+timeCreated: 1486832834
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182142
+  packageName: 2D Soft Body
+  packageVersion: 2.0
+  assetPath: Assets/2DSoftBody/Shaders/VertexColor.shader
+  uploadId: 587864

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2634378561c4b4761b19bf7076bfabbf
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182142
+  packageName: 2D Soft Body
+  packageVersion: 2.0
+  assetPath: Assets/2DSoftBody/Demo/Scripts/BackgroundScaler.cs
+  uploadId: 587864

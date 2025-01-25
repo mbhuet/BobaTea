@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7a8528df2a5624469b523c96cc1861cc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 182142
+  packageName: 2D Soft Body
+  packageVersion: 2.0
+  assetPath: Assets/2DSoftBody/Scripts/Editor/SoftBodyEditorTools.cs
+  uploadId: 587864
