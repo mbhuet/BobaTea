@@ -27,7 +27,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+#if UNITY_EDITOR
+        // Debug scoring by spawning a pearl of random type
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            var bobaPearl = new BobaPearl();
+            bobaPearl.Type = (BobaPearl.BobaType)Random.Range(0, 2);
+            _teaManager.BobaSucked?.Invoke(bobaPearl);
+        }
+#endif
     }
 
     public void AssignBobaManager(BobaTeaManager manager)
