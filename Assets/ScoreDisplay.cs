@@ -16,12 +16,6 @@ public class ScoreDisplay : MonoBehaviour
         ScoreUpdated += OnScoreUpdate;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnScoreUpdate(int score)
     {
         _scoreText.text = $"Score: {score}";
