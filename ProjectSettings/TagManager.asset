@@ -47,5 +47,8 @@ TagManager:
   - name: UI
     uniqueID: 907678039
     locked: 0
+  - name: Cowgirl
+    uniqueID: 36676485
+    locked: 0
   m_RenderingLayers:
   - Default

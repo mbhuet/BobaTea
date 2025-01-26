@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         STUN,
         CELEBRATE,
+        DRINK,
     }
 
     private State currentState;
@@ -38,7 +39,12 @@ public class GameManager : MonoBehaviour
     public BobaTeaManager TeaManager => _teaManager;
 
     public Transform _uiPanelRoot;
+    public Canvas _resultsCanvas;
     public Image[] _comicPanels;
+    public Image _resultsBlackout;
+    public Image _outroComic;
+    public GameObject _outroButtonPanel;
+    public TMPro.TextMeshProUGUI _resultsText;
     public float _comicPanelDelayTime = 2f;
     public float _comicPanelFadeTime = .2f;
     public SpriteRenderer _cowgirlSprite;
@@ -60,15 +66,27 @@ public class GameManager : MonoBehaviour
         ResetUI();
     }
 
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 
     private void ResetUI()
     {
         _uiPanelRoot.transform.localPosition = Vector3.left * 500;
+
         for (int comicIndex = 0; comicIndex < _comicPanels.Length; comicIndex++)
         {
             _comicPanels[comicIndex].gameObject.SetActive(false);
         }
         _cowgirlSprite.gameObject.SetActive(false);
+        _resultsCanvas.gameObject.SetActive(false);
+        _outroButtonPanel.gameObject.SetActive(false);
+        _resultsText.color = Color.clear;
+
+        _resultsBlackout.color = Color.clear;
+        _outroComic.color = Color.clear;
     }
 
     private void Start()
@@ -87,12 +105,16 @@ public class GameManager : MonoBehaviour
             bobaPearl.Type = (BobaPearl.BobaType)Random.Range(0, 2);
             _teaManager.BobaSucked?.Invoke(bobaPearl);
         }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            _time = 0;
+        }
 #endif
         UpdateState();
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(0);
+            ResetGame();
         }
     }
 
@@ -130,6 +152,7 @@ public class GameManager : MonoBehaviour
             case State.RESULTS:
                 break;
         }
+        currentState = newState;
 
         //Begin new state
         switch (newState)
@@ -143,9 +166,9 @@ public class GameManager : MonoBehaviour
                 _time = _countdownTime;
                 break;
             case State.RESULTS:
+                StartCoroutine(ResultsRoutine());
                 break;
         }
-        currentState = newState;
     }
     #endregion
 
@@ -188,6 +211,40 @@ public class GameManager : MonoBehaviour
         yield return null;
     }
 
+    private IEnumerator ResultsRoutine()
+    {
+        DoEmote(Emote.CELEBRATE);
+
+        //_resultsPanel.DOMoveX(0, 1).SetEase(Ease.InOutBack);
+        _resultsCanvas.gameObject.SetActive(true);
+        _resultsBlackout.DOColor(Color.black, _comicPanelFadeTime);
+
+        yield return DelayOrClickToAdvance();
+
+        _resultsText.DOColor(Color.white, _comicPanelFadeTime);
+        _resultsText.transform.localScale = Vector3.one * 2f;
+        _resultsText.transform.DOScale(1, .2f);
+
+        yield return DelayOrClickToAdvance();
+        _resultsBlackout.color = Color.black;
+        _resultsText.color = Color.white;
+
+        while (!ClickToAdvance())
+        {
+            yield return null;
+        }
+
+
+        _cowgirlSprite.DOColor(Color.clear, _comicPanelFadeTime);
+        _outroComic.color = Color.clear;
+        _outroComic.DOColor(Color.white, _comicPanelFadeTime);
+
+        yield return DelayOrClickToAdvance();
+
+        _outroComic.color = Color.white;
+        _outroButtonPanel.gameObject.SetActive(true);
+    }
+
 
     private IEnumerator DelayOrClickToAdvance()
     {
@@ -207,43 +264,66 @@ public class GameManager : MonoBehaviour
 
     private void OnTeaRefilled()
     {
-        DoEmote(Emote.CELEBRATE);
+        DoEmote(Emote.CELEBRATE, 2);
     }
 
-    private void DoEmote(Emote emote)
+    private void StopEmote()
     {
-        if(_cowgirlEmoteRoutine != null)
+        if (_cowgirlEmoteRoutine != null)
         {
             StopCoroutine(_cowgirlEmoteRoutine);
-            _teaManager.SetInteractable(true);
+            _teaManager.SetInteractable(currentState == State.GAME);
             DOTween.Kill(_cowgirlSprite);
         }
+    }
+
+    private void DoEmote(Emote emote, float seconds = -1)
+    {
+        StopEmote();
         switch (emote)
         {
             case Emote.STUN:
-                _cowgirlEmoteRoutine = StartCoroutine(StunRoutine());
+                _cowgirlEmoteRoutine = StartCoroutine(StunRoutine(seconds));
                 break;
             case Emote.CELEBRATE:
-                _cowgirlEmoteRoutine = StartCoroutine(CelebrationRoutine());
+                _cowgirlEmoteRoutine = StartCoroutine(CelebrationRoutine(seconds));
+                break;
+            case Emote.DRINK:
+                _cowgirlEmoteRoutine = StartCoroutine(DrinkingRoutine(seconds));
                 break;
         }
     }
 
-    private IEnumerator StunRoutine()
+    private IEnumerator StunRoutine(float seconds)
     {
         _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Stunned);
         _teaManager.SetInteractable(false);
-        _cowgirlSprite.transform.DOShakePosition(2, 2);
-        yield return new WaitForSeconds(2);
+        _cowgirlSprite.transform.DOShakePosition(seconds, 2);
+        yield return new WaitForSeconds(seconds);
         _teaManager.SetInteractable(true);
         _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Default);
     }
 
-    private IEnumerator CelebrationRoutine()
+    private IEnumerator CelebrationRoutine(float seconds)
     {
         _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Celebratory);
-        yield return new WaitForSeconds(2);
-        _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Default);
+        if(seconds > 0)
+        {
+            yield return new WaitForSeconds(seconds);
+            _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Default);
+        }
+        yield return null;
+    }
+
+    private IEnumerator DrinkingRoutine(float seconds)
+    {
+        _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Drinking);
+        if (seconds > 0)
+        {
+            yield return new WaitForSeconds(seconds);
+            _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Default);
+        }
+        yield return null;
     }
 
     private void OnBobaSucked(BobaPearl boba)
@@ -253,11 +333,11 @@ public class GameManager : MonoBehaviour
             case BobaPearl.BobaType.GOOD:
                 _score++;
                 _scoreDisplay.UpdateValue(_score);
-                _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Drinking);
+                DoEmote(Emote.DRINK);
                 break;
 
             case BobaPearl.BobaType.NASTY:
-                DoEmote(Emote.STUN);
+                DoEmote(Emote.STUN, 2);
                 break;
         }
     }

@@ -11,12 +11,10 @@ public class StrawPull : MonoBehaviour
         if (!enabled) return;
         if (other.attachedRigidbody)
         {
-            var boba = other.attachedRigidbody.GetComponent<BobaPearl>();
-            if (boba != null)
-            {
-                Vector3 pullVector = transform.position - boba.transform.position;
+            
+                Vector3 pullVector = transform.position - other.transform.position;
                 other.attachedRigidbody.AddForce(pullVector.normalized * suckForce, ForceMode2D.Force);
-            }
+            
         }
     }
     private void OnEnable()
