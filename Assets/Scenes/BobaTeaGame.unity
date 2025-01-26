@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &297762794 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6411523496693323939, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
-  m_PrefabInstance: {fileID: 4641679050608774101}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &336005062 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2302748789607742980, guid: 885da381a4e649c4d9decd6b82d27961, type: 3}
@@ -270,7 +259,6 @@ MonoBehaviour:
   _comicPanels:
   - {fileID: 1248049655}
   - {fileID: 532230634}
-  - {fileID: 297762794}
   _resultsBlackout: {fileID: 1640533240}
   _outroComic: {fileID: 336005062}
   _outroButtonPanel: {fileID: 1230555837}
