@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bobaSuckSound: {fileID: 8300000, guid: fc9a9384f38966f49b8f38da82aad313, type: 3}
-  _emptyCupSound: {fileID: 8300000, guid: c101f8d16ffde1543bac55f21754ce35, type: 3}
+  _emptyCupSound: {fileID: 8300000, guid: f0d36c78cc70d8d4db583fd06c238b0d, type: 3}
   _freshTeaPourSound: {fileID: 8300000, guid: 70a475e6efb4a5849b078fac3fee7624, type: 3}
   _disgustedSound: {fileID: 8300000, guid: b7cd747a13c245f48a81c5a81ce94089, type: 3}
   _celebrationSound: {fileID: 0}
