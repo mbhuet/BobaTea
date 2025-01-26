@@ -81,6 +81,11 @@ MonoBehaviour:
   _bobaMixes:
   - {fileID: 11400000, guid: f3bb0004a27424243ab3a80be371b508, type: 2}
   - {fileID: 11400000, guid: 30cb6413d2e74d24397a2628357eec7f, type: 2}
+  - {fileID: 11400000, guid: 739f6b83ed589764d96463b99cfe5099, type: 2}
+  - {fileID: 11400000, guid: 12624e47a9aab5c49a8306d1d063ab33, type: 2}
+  - {fileID: 11400000, guid: 313f30f2abd33114686fc55d54f7e5d0, type: 2}
+  - {fileID: 11400000, guid: 8cdf75216bd524b4ab42c8c078c1410d, type: 2}
+  - {fileID: 11400000, guid: 078d2e495f515fa458589d3891c284a6, type: 2}
   _bobaTeaCup: {fileID: 1955080089451768839}
   _straw: {fileID: 6278541769947097737}
   _offScreenTarget: {fileID: 5137550045941597707}
