@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class BobaStraw : MonoBehaviour
     public Transform _pivotPoint;
     public Transform _strawTransform;
     public Rigidbody2D _strawRigidbody;
+    public StrawLump _lumpPrefab;
 
     public Vector2 _bounds;
 
@@ -19,6 +21,8 @@ public class BobaStraw : MonoBehaviour
 
     public float strawMoveForce = 1;
     private bool isInteractable = false;
+
+    public AudioClip suckClip;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -105,6 +109,15 @@ public class BobaStraw : MonoBehaviour
     {
         GameManager.Instance.TeaManager.BobaSucked?.Invoke(boba);
         GameObject.Destroy(boba.gameObject);
+        if(suckClip) AudioSource.PlayClipAtPoint(suckClip, Camera.main.transform.position);
+        SendLump();
+    }
+
+    private void SendLump()
+    {
+        StrawLump lump = GameObject.Instantiate(_lumpPrefab, _lumpPrefab.transform.parent);
+        lump.gameObject.SetActive(true);
+        lump.SetStraw(this);
     }
 
     private void OnDrawGizmosSelected()
