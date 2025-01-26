@@ -241,6 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 574632547}
   - component: {fileID: 574632546}
+  - component: {fileID: 574632548}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -293,6 +294,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &574632548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574632545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42628b5bc0217074f961451723eaac38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bobaSuckSound: {fileID: 8300000, guid: fc9a9384f38966f49b8f38da82aad313, type: 3}
+  _emptyCupSound: {fileID: 8300000, guid: c101f8d16ffde1543bac55f21754ce35, type: 3}
+  _freshTeaPourSound: {fileID: 8300000, guid: 70a475e6efb4a5849b078fac3fee7624, type: 3}
+  _disgustedSound: {fileID: 8300000, guid: b7cd747a13c245f48a81c5a81ce94089, type: 3}
+  _celebrationSound: {fileID: 0}
+  _saloonDoorCreak: {fileID: 0}
 --- !u!223 &673411752 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8271199300480624397, guid: 885da381a4e649c4d9decd6b82d27961, type: 3}
@@ -640,10 +659,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 50969359701731909, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 168130788600825779, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -744,10 +759,6 @@ PrefabInstance:
       propertyPath: _teaManager
       value: 
       objectReference: {fileID: 1805509060}
-    - target: {fileID: 2191571924488552141, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2254631590771045753, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -758,10 +769,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2254631590771045753, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2391294307376494092, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2777832359808342393, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
@@ -791,10 +798,6 @@ PrefabInstance:
     - target: {fileID: 4680062599223667945, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_SortingLayerID
       value: 36676485
-      objectReference: {fileID: 0}
-    - target: {fileID: 4708219892026469993, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
-      propertyPath: m_Type
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5899557854823376029, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -848,10 +851,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mockup
       objectReference: {fileID: 0}
-    - target: {fileID: 6411523496693323939, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
-      propertyPath: m_Type
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6814856194147700922, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -891,10 +890,6 @@ PrefabInstance:
     - target: {fileID: 8018616389899785297, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8573124363664097373, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8906437182665056622, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_LocalScale.x
