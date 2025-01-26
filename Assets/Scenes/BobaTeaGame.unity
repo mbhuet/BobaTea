@@ -220,86 +220,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &574632545
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 574632547}
-  - component: {fileID: 574632546}
-  - component: {fileID: 574632548}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &574632546
+--- !u!114 &574632546 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+  m_PrefabInstance: {fileID: 8915981501110023186}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574632545}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 900c8c079eeec4e4d83c8bb44ffc2f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teaManager: {fileID: 1805509060}
-  _scoreDisplay: {fileID: 1603225136}
-  _timeDisplay: {fileID: 1990928530}
-  _countdownTime: 60
-  _uiPanelRoot: {fileID: 1165912959}
-  _resultsCanvas: {fileID: 673411752}
-  _comicPanels:
-  - {fileID: 1248049655}
-  - {fileID: 532230634}
-  _resultsBlackout: {fileID: 1640533240}
-  _outroComic: {fileID: 336005062}
-  _outroButtonPanel: {fileID: 1230555837}
-  _resultsText: {fileID: 1389197892}
-  _comicPanelDelayTime: 2
-  _comicPanelFadeTime: 0.2
-  _cowgirlSprite: {fileID: 771543133}
-  _cowgirlStateMachine: {fileID: 771543132}
---- !u!4 &574632547
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574632545}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 332.36783, y: 204.46211, z: 1.999405}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &574632548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 574632545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42628b5bc0217074f961451723eaac38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bobaSuckSound: {fileID: 8300000, guid: fc9a9384f38966f49b8f38da82aad313, type: 3}
-  _emptyCupSound: {fileID: 8300000, guid: f0d36c78cc70d8d4db583fd06c238b0d, type: 3}
-  _freshTeaPourSound: {fileID: 8300000, guid: 70a475e6efb4a5849b078fac3fee7624, type: 3}
-  _disgustedSound: {fileID: 8300000, guid: b7cd747a13c245f48a81c5a81ce94089, type: 3}
-  _celebrationSound: {fileID: 0}
-  _glassFilled: {fileID: 8300000, guid: af88c692ce02a0740bbff86d1728a071, type: 3}
 --- !u!223 &673411752 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8271199300480624397, guid: 885da381a4e649c4d9decd6b82d27961, type: 3}
@@ -969,12 +900,121 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+--- !u!1001 &8915981501110023186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _outroComic
+      value: 
+      objectReference: {fileID: 336005062}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _teaManager
+      value: 
+      objectReference: {fileID: 1805509060}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _resultsText
+      value: 
+      objectReference: {fileID: 1389197892}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _timeDisplay
+      value: 
+      objectReference: {fileID: 1990928530}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _uiPanelRoot
+      value: 
+      objectReference: {fileID: 1165912959}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _scoreDisplay
+      value: 
+      objectReference: {fileID: 1603225136}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _cowgirlSprite
+      value: 
+      objectReference: {fileID: 771543133}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _resultsCanvas
+      value: 
+      objectReference: {fileID: 673411752}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _resultsBlackout
+      value: 
+      objectReference: {fileID: 1640533240}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _outroButtonPanel
+      value: 
+      objectReference: {fileID: 1230555837}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: _cowgirlStateMachine
+      value: 
+      objectReference: {fileID: 771543132}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: '_comicPanels.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1248049655}
+    - target: {fileID: 910439403383601400, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: '_comicPanels.Array.data[1]'
+      value: 
+      objectReference: {fileID: 532230634}
+    - target: {fileID: 2784621778195345090, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 332.36783
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 204.46211
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.999405
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6329301149655593552, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3179c1f8204266e43a078d73b67e9a27, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1578288469}
-  - {fileID: 574632547}
+  - {fileID: 8915981501110023186}
   - {fileID: 426896833}
   - {fileID: 7922933820130090305}
   - {fileID: 4641679050608774101}

@@ -870,7 +870,7 @@ MonoBehaviour:
   _spawnPoint: {fileID: 6824340396280493004}
   _fillImage: {fileID: 4066946449670366905}
   _spawnRadius: 1
-  _suckSpeed: 0.2
+  _suckSpeed: 0.3
   _cupHeight: 11.65
   _straw: {fileID: 5973402080414102369}
   _depletedFillAmount: 0.1
