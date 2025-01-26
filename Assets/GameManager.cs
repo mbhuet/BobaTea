@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     private int _score = 0;
     private float _time = 0;
-
+    private int _refills = 0;
     public float _countdownTime = 60f;
 
     public BobaTeaManager TeaManager => _teaManager;
@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
         //DontDestroyOnLoad(Instance);
 
         _teaManager.BobaSucked += OnBobaSucked;
-
         ResetUI();
     }
 
@@ -126,6 +125,7 @@ public class GameManager : MonoBehaviour
             case State.COMIC_INTRO:
                 break;
             case State.GAME:
+
                 _time -= Time.deltaTime;
                 _timeDisplay.UpdateValue(Mathf.RoundToInt(_time));
                 if(_time <= 0)
@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
             case State.COMIC_INTRO:
                 break;
             case State.GAME:
+
                 _teaManager.TeaRefilled -= OnTeaRefilled;
                 _teaManager.EndTeaService();
                 break;
@@ -164,6 +165,7 @@ public class GameManager : MonoBehaviour
                 _teaManager.TeaRefilled += OnTeaRefilled;
                 _teaManager.BeginTeaService();
                 _time = _countdownTime;
+                _refills = 0;
                 break;
             case State.RESULTS:
                 StartCoroutine(ResultsRoutine());
@@ -213,6 +215,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ResultsRoutine()
     {
+        _resultsText.text = string.Format("RESULTS\n\n{0} Bobas \n{1} Refills\n\nclick to continue", _score, _refills);
         DoEmote(Emote.CELEBRATE);
 
         //_resultsPanel.DOMoveX(0, 1).SetEase(Ease.InOutBack);
