@@ -916,6 +916,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4446363232032800593, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+      propertyPath: m_FillAmount
+      value: 0.815
+      objectReference: {fileID: 0}
     - target: {fileID: 5260329763076921270, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
       propertyPath: m_Name
       value: BobaManager
