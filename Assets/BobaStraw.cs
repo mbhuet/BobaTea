@@ -9,6 +9,8 @@ public class BobaStraw : MonoBehaviour
     public Rigidbody2D _strawRigidbody;
     public StrawLump _lumpPrefab;
 
+    public AudioSource _slurpAudio;
+
     public Vector2 _bounds;
 
     public bool IsSucking => isSucking;
@@ -94,6 +96,7 @@ public class BobaStraw : MonoBehaviour
         isSucking = true;
         _pull.enabled = true;
         _suck.enabled = true;
+        _slurpAudio.Play();
     }
 
     private void EndSuck()
@@ -101,7 +104,8 @@ public class BobaStraw : MonoBehaviour
         //Debug.Log("End Suck");
         isSucking = false;
         _pull.enabled = false;
-        _suck.enabled = false;  
+        _suck.enabled = false;
+        _slurpAudio.Stop();
     }
 
     public void Suck(BobaPearl boba)
