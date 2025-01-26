@@ -945,10 +945,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bobaPearlPrefab: {fileID: 545873364381676471, guid: 72879f82195c8404cbe846fcae8d886c, type: 3}
   _nastyPearlPrefab: {fileID: 545873364381676471, guid: 2f331f84e03df774fa8106084e57740d, type: 3}
+  _iceCubePrefab: {fileID: 3828544465800334957, guid: 5a3fd11d64272fd47bfdda76447cea6c, type: 3}
   _spawnPoint: {fileID: 6824340396280493004}
   _fillImage: {fileID: 4066946449670366905}
   _spawnRadius: 1
-  _suckSpeed: 0.1
+  _suckSpeed: 0.2
   _cupHeight: 11.65
   _straw: {fileID: 5973402080414102369}
   _depletedFillAmount: 0.1

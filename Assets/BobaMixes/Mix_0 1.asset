@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa8055a4d1b0c44685f96d624e14069, type: 3}
   m_Name: Mix_0 1
   m_EditorClassIdentifier: 
+  IceCubeCount: 3
   BobaPearlCount: 10
   NastyPearlCount: 3

@@ -9,6 +9,7 @@ public class BobaTeaCup : MonoBehaviour
 {
     public BobaPearl _bobaPearlPrefab;
     public BobaPearl _nastyPearlPrefab;
+    public GameObject _iceCubePrefab;
 
     public Action TeaDepleted;
     public Transform _spawnPoint;
@@ -64,13 +65,9 @@ public class BobaTeaCup : MonoBehaviour
 
     public void Clean()
     {
-        for (int i = _spawnedPearls.Count - 1; i >= 0; i--)
+        foreach (Transform child in _spawnPoint.transform)
         {
-            var boba = _spawnedPearls[i];
-            if (boba != null)
-            {
-                GameObject.Destroy(boba.gameObject);
-            }
+            Destroy(child.gameObject);
         }
         _spawnedPearls.Clear();
     }
@@ -83,12 +80,18 @@ public class BobaTeaCup : MonoBehaviour
         for (int i = 0; i < mix.BobaPearlCount; i++)
         {
             Vector3 pos = _spawnPoint.position + (Vector3)UnityEngine.Random.insideUnitCircle * _spawnRadius;
-            _spawnedPearls.Add(GameObject.Instantiate(_bobaPearlPrefab, pos, Quaternion.identity, transform));
+            _spawnedPearls.Add(GameObject.Instantiate(_bobaPearlPrefab, pos, Quaternion.identity, _spawnPoint));
         }
         for (int i = 0; i < mix.NastyPearlCount; i++)
         {
             Vector3 pos = _spawnPoint.position + (Vector3)UnityEngine.Random.insideUnitCircle * _spawnRadius;
-            _spawnedPearls.Add(GameObject.Instantiate(_nastyPearlPrefab, pos, Quaternion.identity, transform));
+            _spawnedPearls.Add(GameObject.Instantiate(_nastyPearlPrefab, pos, Quaternion.identity, _spawnPoint));
+        }
+
+        for (int i = 0; i < mix.IceCubeCount; i++)
+        {
+            Vector3 pos = _spawnPoint.position + (Vector3)UnityEngine.Random.insideUnitCircle * _spawnRadius;
+            GameObject.Instantiate(_iceCubePrefab, pos, Quaternion.identity, _spawnPoint);
         }
     }
 
