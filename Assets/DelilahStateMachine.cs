@@ -26,8 +26,8 @@ public class DelilahStateMachine : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        if (_teaManager != null)
-            _teaManager.BobaSucked += OnBobaSucked;
+        //if (_teaManager != null)
+        //    _teaManager.BobaSucked += OnBobaSucked;
 
         _initialSpritePosition = transform.position;
     }
@@ -35,6 +35,7 @@ public class DelilahStateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (_shakeTimer > 0f)
         {
             var offset = new Vector3((Random.insideUnitCircle * _shakeIntensity).x, 0f, 0f);
@@ -45,8 +46,10 @@ public class DelilahStateMachine : MonoBehaviour
         {
             transform.position = _initialSpritePosition;
         }
+        */
     }
 
+    /*
     private void OnBobaSucked(BobaPearl boba)
     {
         switch(boba.Type)
@@ -60,11 +63,18 @@ public class DelilahStateMachine : MonoBehaviour
                 _shakeTimer = _shakeDuration;
                 break;
         }
-    }
+    }*/
 
     public void SetDelilahState(DelilahState state)
     {
+        Debug.Log($"SetDelilahState {state}");
         if ((int)state < _delilahSprites.Length)
             _spriteRenderer.sprite = _delilahSprites[(int)state];
+
+        switch (state)
+        {
+            case DelilahState.Stunned:
+                break;
+        }
     }
 }

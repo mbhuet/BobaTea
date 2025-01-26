@@ -18,6 +18,7 @@ public class BobaTeaManager : MonoBehaviour
     public AudioClip _emptyCupClip;
 
     private bool _isServingTea;
+    private bool _isInteractable;
 
     private void Start()
     {
@@ -53,8 +54,9 @@ public class BobaTeaManager : MonoBehaviour
         _bobaTeaCup.gameObject.SetActive(true);
         _bobaTeaCup.transform.position = _offScreenTarget.position;
         _bobaTeaCup.SpawnMix(GetRandomMix());
-       StartCoroutine(ServeFreshTeaRoutine());
+        StartCoroutine(ServeFreshTeaRoutine());
         _bobaTeaCup.Refill();
+        if (TeaRefilled != null) TeaRefilled.Invoke();
     }
 
     private IEnumerator ServeFreshTeaRoutine()
@@ -67,11 +69,11 @@ public class BobaTeaManager : MonoBehaviour
     public void RemoveEmptyTea()
     {
         _straw.SetInteractable(false);
-        if(_emptyCupClip != null )
+        if (_emptyCupClip != null)
         {
             AudioSource.PlayClipAtPoint(_emptyCupClip, Camera.main.transform.position);
         }
-       
+
         StartCoroutine(RemoveEmptyTeaRoutine());
     }
 
@@ -87,5 +89,11 @@ public class BobaTeaManager : MonoBehaviour
         {
             ServeFreshTea();
         }
+    }
+
+    public void SetInteractable(bool interactable)
+    {
+        _isInteractable = interactable;
+        _straw.SetInteractable(interactable);
     }
 }
