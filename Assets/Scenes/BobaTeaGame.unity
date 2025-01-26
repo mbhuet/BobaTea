@@ -299,7 +299,7 @@ MonoBehaviour:
   _freshTeaPourSound: {fileID: 8300000, guid: 70a475e6efb4a5849b078fac3fee7624, type: 3}
   _disgustedSound: {fileID: 8300000, guid: b7cd747a13c245f48a81c5a81ce94089, type: 3}
   _celebrationSound: {fileID: 0}
-  _saloonDoorCreak: {fileID: 0}
+  _glassFilled: {fileID: 8300000, guid: af88c692ce02a0740bbff86d1728a071, type: 3}
 --- !u!223 &673411752 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8271199300480624397, guid: 885da381a4e649c4d9decd6b82d27961, type: 3}

@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip _freshTeaPourSound;
     public AudioClip _disgustedSound;
     public AudioClip _celebrationSound;
-    public AudioClip _saloonDoorCreak;
+    public AudioClip _glassFilled;
     
     private void Awake()
     {

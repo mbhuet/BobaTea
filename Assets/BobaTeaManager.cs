@@ -61,6 +61,10 @@ public class BobaTeaManager : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(AudioManager.Instance._freshTeaPourSound, Camera.main.transform.position);
         }
+        if (AudioManager.Instance._glassFilled)
+        {
+            AudioSource.PlayClipAtPoint(AudioManager.Instance._glassFilled, Camera.main.transform.position);
+        }
     }
 
     private IEnumerator ServeFreshTeaRoutine()
