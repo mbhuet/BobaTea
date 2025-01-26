@@ -943,7 +943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28761f703a625624d9bac03ebfd83cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bobaPearlPrefab: {fileID: 1229810352026156, guid: 72879f82195c8404cbe846fcae8d886c, type: 3}
+  _bobaPearlPrefab: {fileID: 545873364381676471, guid: 72879f82195c8404cbe846fcae8d886c, type: 3}
+  _nastyPearlPrefab: {fileID: 545873364381676471, guid: 2f331f84e03df774fa8106084e57740d, type: 3}
   _spawnPoint: {fileID: 6824340396280493004}
   _fillImage: {fileID: 4066946449670366905}
   _spawnRadius: 1
@@ -951,6 +952,7 @@ MonoBehaviour:
   _cupHeight: 11.65
   _straw: {fileID: 5973402080414102369}
   _depletedFillAmount: 0.1
+  _refillFillAmount: 0.9
 --- !u!1 &4541772741055905559
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,9 +53,10 @@ public class BobaTeaManager : MonoBehaviour
     {
         _bobaTeaCup.gameObject.SetActive(true);
         _bobaTeaCup.transform.position = _offScreenTarget.position;
+        _bobaTeaCup.Clean();
+        _bobaTeaCup.Refill();
         _bobaTeaCup.SpawnMix(GetRandomMix());
         StartCoroutine(ServeFreshTeaRoutine());
-        _bobaTeaCup.Refill();
         if (TeaRefilled != null) TeaRefilled.Invoke();
     }
 

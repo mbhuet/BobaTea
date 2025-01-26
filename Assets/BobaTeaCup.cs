@@ -1,11 +1,15 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BobaTeaCup : MonoBehaviour
 {
-    public GameObject _bobaPearlPrefab;
+    public BobaPearl _bobaPearlPrefab;
+    public BobaPearl _nastyPearlPrefab;
+
     public Action TeaDepleted;
     public Transform _spawnPoint;
     public Image  _fillImage;
@@ -20,6 +24,8 @@ public class BobaTeaCup : MonoBehaviour
     private float _fillAmount = 1;
     public float _depletedFillAmount = .1f;
     public float _refillFillAmount = .9f;
+
+    private List<BobaPearl> _spawnedPearls = new List<BobaPearl>();
 
 
     private void Update()
@@ -53,7 +59,22 @@ public class BobaTeaCup : MonoBehaviour
     {
         _fillAmount = _refillFillAmount;
         ReflectFillAmount();
+
     }
+
+    public void Clean()
+    {
+        for (int i = _spawnedPearls.Count - 1; i >= 0; i--)
+        {
+            var boba = _spawnedPearls[i];
+            if (boba != null)
+            {
+                GameObject.Destroy(boba.gameObject);
+            }
+        }
+        _spawnedPearls.Clear();
+    }
+
 
     public void SpawnMix(BobaMix mix)
     {
@@ -62,7 +83,12 @@ public class BobaTeaCup : MonoBehaviour
         for (int i = 0; i < mix.BobaPearlCount; i++)
         {
             Vector3 pos = _spawnPoint.position + (Vector3)UnityEngine.Random.insideUnitCircle * _spawnRadius;
-            GameObject.Instantiate(_bobaPearlPrefab, pos, Quaternion.identity, transform);
+            _spawnedPearls.Add(GameObject.Instantiate(_bobaPearlPrefab, pos, Quaternion.identity, transform));
+        }
+        for (int i = 0; i < mix.NastyPearlCount; i++)
+        {
+            Vector3 pos = _spawnPoint.position + (Vector3)UnityEngine.Random.insideUnitCircle * _spawnRadius;
+            _spawnedPearls.Add(GameObject.Instantiate(_nastyPearlPrefab, pos, Quaternion.identity, transform));
         }
     }
 
