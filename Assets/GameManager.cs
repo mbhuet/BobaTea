@@ -300,6 +300,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StunRoutine(float seconds)
     {
+        if (AudioManager.Instance._disgustedSound)
+        {
+            AudioSource.PlayClipAtPoint(AudioManager.Instance._disgustedSound, Camera.main.transform.position);
+        }
         _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Stunned);
         _teaManager.SetInteractable(false);
         _cowgirlSprite.transform.DOShakePosition(seconds, 2);

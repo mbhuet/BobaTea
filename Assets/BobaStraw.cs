@@ -22,7 +22,6 @@ public class BobaStraw : MonoBehaviour
     public float strawMoveForce = 1;
     private bool isInteractable = false;
 
-    public AudioClip suckClip;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -109,7 +108,7 @@ public class BobaStraw : MonoBehaviour
     {
         GameManager.Instance.TeaManager.BobaSucked?.Invoke(boba);
         GameObject.Destroy(boba.gameObject);
-        if(suckClip) AudioSource.PlayClipAtPoint(suckClip, Camera.main.transform.position);
+        if(AudioManager.Instance._bobaSuckSound) AudioSource.PlayClipAtPoint(AudioManager.Instance._bobaSuckSound, Camera.main.transform.position);
         SendLump();
     }
 
