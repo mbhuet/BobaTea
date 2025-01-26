@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d585ac6813cc24b5882c84bf43f45721
+guid: 7fc56b5222a0f42298fcdcf7c18a5312
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6495139431790275172
-    second: StartScreen_BKG_Saloon_0
+      213: -2655448145359009310
+    second: Game_Mock-up_Menu_art_JHK_v02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1024
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StartScreen_BKG_Saloon_0
+      name: Game_Mock-up_Menu_art_JHK_v02_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9512897911acd5a0800000000000000
-      internalID: -6495139431790275172
+      spriteID: 2e908602bf3f52bd0800000000000000
+      internalID: -2655448145359009310
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      StartScreen_BKG_Saloon_0: -6495139431790275172
+      Game_Mock-up_Menu_art_JHK_v02_0: -2655448145359009310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
