@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-    private BobaTeaManager _teaManager;
-    private ScoreDisplay _scoreDisplay;
+    public BobaTeaManager _teaManager;
+    public ScoreDisplay _scoreDisplay;
     private int _score = 0;
 
     public BobaTeaManager TeaManager => _teaManager;
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
         //DontDestroyOnLoad(Instance);
 
+        _teaManager.BobaSucked += OnBobaSucked;
 
         ResetUI();
     }
@@ -100,29 +101,6 @@ public class GameManager : MonoBehaviour
             case State.COWGIRL_INTRO:
                 break;
         }
-    }
-
-    public void AssignBobaManager(BobaTeaManager manager)
-    {
-        if (manager == null)
-            return;
-
-        _teaManager = manager;
-        _teaManager.BobaSucked += OnBobaSucked;
-    }
-
-    private void UnassignBobaManager()
-    {
-        _teaManager.BobaSucked -= OnBobaSucked;
-        _teaManager = null;
-    }
-
-    public void AssignScoreDisplay(ScoreDisplay display)
-    {
-        if (display == null)
-            return;
-
-        _scoreDisplay = display;
     }
 
     private void OnBobaSucked(BobaPearl boba)
@@ -216,6 +194,7 @@ public class GameManager : MonoBehaviour
     {
         _bobaTeaServeNeeded = false;
         _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Celebratory);
+        TeaManager.ServeFreshTea();
         yield return null;
     }
 

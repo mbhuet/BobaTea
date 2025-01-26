@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &193933125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193933126}
+  m_Layer: 0
+  m_Name: BobaTeaTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &193933126
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193933125}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 574632547}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &297762794 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6411523496693323939, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
@@ -258,6 +289,7 @@ MonoBehaviour:
   _comicPanelFadeTime: 0.2
   _cowgirlSprite: {fileID: 771543133}
   _cowgirlStateMachine: {fileID: 771543132}
+  _bobaTeaTarget: {fileID: 0}
 --- !u!4 &574632547
 Transform:
   m_ObjectHideFlags: 0
@@ -270,7 +302,8 @@ Transform:
   m_LocalPosition: {x: 332.36783, y: 204.46211, z: 1.999405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 193933126}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &771543132 stripped
@@ -453,6 +486,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076b119b9c02d9d4182c967d691c21e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1961780730 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5137550045941597707, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+  m_PrefabInstance: {fileID: 7922933820130090305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2091165059 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5879849441035107215, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+  m_PrefabInstance: {fileID: 7922933820130090305}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4641679050608774101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -569,12 +612,20 @@ PrefabInstance:
       propertyPath: _teaManager
       value: 
       objectReference: {fileID: 1805509060}
+    - target: {fileID: 2191571924488552141, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2254631590771045753, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2254631590771045753, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391294307376494092, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2777832359808342393, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
@@ -701,6 +752,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8573124363664097373, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8906437182665056622, guid: 3eca48d3df462ed4287c0f2a1632144a, type: 3}
       propertyPath: m_LocalScale.x
       value: 40.4
@@ -738,21 +793,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2018541872445164018, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+      propertyPath: _onScreenTarget
+      value: 
+      objectReference: {fileID: 2091165059}
+    - target: {fileID: 2018541872445164018, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+      propertyPath: _offScreenTarget
+      value: 
+      objectReference: {fileID: 1961780730}
+    - target: {fileID: 5137550045941597707, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.44
+      objectReference: {fileID: 0}
     - target: {fileID: 5260329763076921270, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
       propertyPath: m_Name
       value: BobaManager
       objectReference: {fileID: 0}
     - target: {fileID: 6412942595897812947, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.93
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 7191877639296636406, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.94
       objectReference: {fileID: 0}
     - target: {fileID: 7191877639296636406, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -8.33
       objectReference: {fileID: 0}
     - target: {fileID: 7191877639296636406, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -788,7 +855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7350591395942605592, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.02
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157802227557159311, guid: 9eae60ebc85dfba47b0e6c84a0a1c9d6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
