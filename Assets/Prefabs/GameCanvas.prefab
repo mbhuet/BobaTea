@@ -149,7 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25c969069119214dbe7edb623f9ab2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreText: {fileID: 2777832359808342393}
+  _text: {fileID: 2777832359808342393}
+  label: 'Score: '
 --- !u!1 &2191571924488552141
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25c969069119214dbe7edb623f9ab2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreText: {fileID: 1723591463886479519}
+  _text: {fileID: 1723591463886479519}
+  label: 'Time: '
 --- !u!1 &3927746353561688702
 GameObject:
   m_ObjectHideFlags: 0

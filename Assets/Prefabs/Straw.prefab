@@ -5210,7 +5210,7 @@ MonoBehaviour:
   _pivotPoint: {fileID: 4160789848646924548}
   _strawTransform: {fileID: 8164624336139755436}
   _strawRigidbody: {fileID: 7288354378735222362}
-  _bounds: {x: 2.06, y: 3.42}
+  _bounds: {x: 2.6, y: 5}
   _pull: {fileID: 5910240061795264049}
   _suck: {fileID: 930833010002045165}
   strawMoveForce: 1

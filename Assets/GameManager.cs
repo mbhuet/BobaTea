@@ -10,9 +10,8 @@ public class GameManager : MonoBehaviour
     private enum State
     {
         COMIC_INTRO, //comic panels
-        COWGIRL_INTRO, //ui appears
         GAME,
-        OUTRO,
+        RESULTS,
     }
 
     private State currentState;
@@ -20,8 +19,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public BobaTeaManager _teaManager;
-    public ScoreDisplay _scoreDisplay;
+    public IntDisplay _scoreDisplay;
+    public IntDisplay _timeDisplay;
+
     private int _score = 0;
+    private float _time = 0;
+
+    public float _countdownTime = 60f;
 
     public BobaTeaManager TeaManager => _teaManager;
 
@@ -32,8 +36,6 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer _cowgirlSprite;
     public DelilahStateMachine _cowgirlStateMachine;
 
-    private bool _bobaTeaServeNeeded = true;
-    private Coroutine _bobaServeRoutine;
     private void Awake()
     {
         if (Instance == null)
@@ -91,14 +93,14 @@ public class GameManager : MonoBehaviour
             case State.COMIC_INTRO:
                 break;
             case State.GAME:
-                if (_bobaTeaServeNeeded)
+                _time -= Time.deltaTime;
+                _timeDisplay.UpdateValue(Mathf.RoundToInt(_time));
+                if(_time <= 0)
                 {
-                    _bobaServeRoutine = StartCoroutine(BobaServeRoutine());
+                    SetState(State.RESULTS);
                 }
                 break;
-            case State.OUTRO:
-                break;
-            case State.COWGIRL_INTRO:
+            case State.RESULTS:
                 break;
         }
     }
@@ -109,40 +111,43 @@ public class GameManager : MonoBehaviour
         {
             case BobaPearl.BobaType.GOOD:
                 _score++;
-                _scoreDisplay.ScoreUpdated?.Invoke(_score);
+                _scoreDisplay.UpdateValue(_score);
                 break;
 
             case BobaPearl.BobaType.NASTY:
                 break;
         }
 
-        Debug.Log($"Score: {_score}", this);
+        //Debug.Log($"Score: {_score}", this);
     }
 
     private void SetState(State newState)
     {
+        //Exit old state
         switch (currentState)
         {
             case State.COMIC_INTRO:
                 break;
             case State.GAME:
+                _teaManager.TeaRefilled -= OnTeaRefilled;
+                _teaManager.EndTeaService();
                 break;
-            case State.OUTRO:
-                break;
-            case State.COWGIRL_INTRO:
+            case State.RESULTS:
                 break;
         }
 
+        //Begin new state
         switch (newState)
         {
             case State.COMIC_INTRO:
                 StartCoroutine(IntroRoutine());
                 break;
             case State.GAME:
+                _teaManager.TeaRefilled += OnTeaRefilled;
+                _teaManager.BeginTeaService();
+                _time = _countdownTime;
                 break;
-            case State.OUTRO:
-                break;
-            case State.COWGIRL_INTRO:
+            case State.RESULTS:
                 break;
         }
         currentState = newState;
@@ -182,21 +187,11 @@ public class GameManager : MonoBehaviour
 
         yield return DelayOrClickToAdvance();
 
-        _bobaTeaServeNeeded = true;
-
-
 
         SetState(State.GAME);
         yield return null;
     }
 
-    private IEnumerator BobaServeRoutine()
-    {
-        _bobaTeaServeNeeded = false;
-        _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Celebratory);
-        TeaManager.ServeFreshTea();
-        yield return null;
-    }
 
     private IEnumerator DelayOrClickToAdvance()
     {
@@ -212,5 +207,10 @@ public class GameManager : MonoBehaviour
     private bool ClickToAdvance()
     {
         return Input.GetMouseButtonDown(0);
+    }
+
+    private void OnTeaRefilled()
+    {
+        _cowgirlStateMachine.SetDelilahState(DelilahStateMachine.DelilahState.Celebratory);
     }
 }

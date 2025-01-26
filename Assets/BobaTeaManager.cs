@@ -14,20 +14,33 @@ public class BobaTeaManager : MonoBehaviour
     public Transform _onScreenTarget;
 
     public Action OnTeaEmpty;
+    public Action TeaRefilled;
     public AudioClip _emptyCupClip;
+
+    private bool _isServingTea;
 
     private void Start()
     {
         Debug.Log("BobaTeaManager Start");
         _bobaTeaCup.TeaDepleted += OnTeaCompleted;
-
-
         _bobaTeaCup.gameObject.SetActive(false);
     }
 
     public void OnTeaCompleted()
     {
+        RemoveEmptyTea();
+    }
 
+    public void BeginTeaService()
+    {
+        _isServingTea = true;
+        ServeFreshTea();
+    }
+
+    public void EndTeaService()
+    {
+        _isServingTea = false;
+        _straw.SetInteractable(false);
     }
 
     private BobaMix GetRandomMix()
@@ -40,8 +53,8 @@ public class BobaTeaManager : MonoBehaviour
         _bobaTeaCup.gameObject.SetActive(true);
         _bobaTeaCup.transform.position = _offScreenTarget.position;
         _bobaTeaCup.SpawnMix(GetRandomMix());
-       StartCoroutine(ServeFreshTeaRoutine()); 
-
+       StartCoroutine(ServeFreshTeaRoutine());
+        _bobaTeaCup.Refill();
     }
 
     private IEnumerator ServeFreshTeaRoutine()
@@ -69,6 +82,10 @@ public class BobaTeaManager : MonoBehaviour
         _bobaTeaCup.transform.DOMove(_offScreenTarget.position, 1).SetEase(Ease.OutExpo);
         yield return new WaitForSeconds(1);
         _bobaTeaCup.gameObject.SetActive(false);
-        if(OnTeaEmpty != null) OnTeaEmpty.Invoke();
+
+        if (_isServingTea)
+        {
+            ServeFreshTea();
+        }
     }
 }
