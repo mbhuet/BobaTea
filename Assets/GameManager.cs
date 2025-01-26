@@ -220,6 +220,7 @@ public class GameManager : MonoBehaviour
 
         //_resultsPanel.DOMoveX(0, 1).SetEase(Ease.InOutBack);
         _resultsCanvas.gameObject.SetActive(true);
+        _resultsBlackout.color = Color.clear;
         _resultsBlackout.DOColor(Color.black, _comicPanelFadeTime);
 
         yield return DelayOrClickToAdvance();
