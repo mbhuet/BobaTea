@@ -268,6 +268,7 @@ public class GameManager : MonoBehaviour
 
     private void OnTeaRefilled()
     {
+        _refills++;
         DoEmote(Emote.CELEBRATE, 2);
     }
 
