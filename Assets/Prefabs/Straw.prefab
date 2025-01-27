@@ -5528,7 +5528,7 @@ MonoBehaviour:
   _pivotPoint: {fileID: 4160789848646924548}
   _strawTransform: {fileID: 8164624336139755436}
   _strawRigidbody: {fileID: 7288354378735222362}
-  _lumpPrefab: {fileID: 9198869765269799881}
+  _lumpPrefab: {fileID: 448087170823252265}
   _slurpAudio: {fileID: 8170796472105919849}
   _bounds: {x: 2.6, y: 5}
   _pull: {fileID: 5910240061795264049}
@@ -5758,7 +5758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 207580556967518461}
-  - component: {fileID: 9198869765269799881}
+  - component: {fileID: 448087170823252265}
   m_Layer: 6
   m_Name: LumpPrefab
   m_TagString: Untagged
@@ -5783,7 +5783,7 @@ Transform:
   - {fileID: 7364865746466044549}
   m_Father: {fileID: 720388253395907787}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9198869765269799881
+--- !u!114 &448087170823252265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5795,5 +5795,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658cd83176c06764e99c1beda832234d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   travelDistance: 10
